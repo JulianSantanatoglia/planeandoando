@@ -1,5 +1,4 @@
 import React from "react";
-import Budget from "./components/Budget";
 import Itinerary from "./components/Itinerary";
 import Transport from "./components/Transport";
 import BarsRestaurants from "./components/BarsRestaurants";
