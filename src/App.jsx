@@ -9,7 +9,7 @@ const App = () => {
       <div className="flex flex-col items-center justify-center">
         <h1 className="text-4xl font-light text-gray-800 mb-8 m-10">
           Planeando<span className="text-indigo-600 font-semibold">Ando</span>
-          <span className="text-sm flex justify-center text-gray-500 block">
+          <span className="text-sm flex justify-center text-gray-500">
             Tu planificador de viajes
           </span>
         </h1>
