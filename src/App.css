@@ -1,0 +1,53 @@
+#root {
+  max-width: 1280px;
+  margin: 2rem auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: sans-serif;
+  color: #222; /* Un gris muy oscuro, casi negro, para el texto */
+  background-color: #f9f9f9; /* Un blanco muy suave */
+  border-radius: 12px;
+}
+
+.logo {
+  height: 4em;
+  padding: 1em;
+  will-change: filter;
+  transition: filter 300ms ease-in-out;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 0.5em #e0e0e0); /* Un sombreado muy sutil */
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 0.5em #e0e0e0); /* Igual de sutil */
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 1.5em;
+  background-color: #ffffff; /* Blanco puro */
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Un sombreado muy ligero */
+  margin: 1rem 0;
+}
+
+.read-the-docs {
+  color: #666; /* Un gris más claro para texto secundario */
+  font-size: 0.9em;
+}
