@@ -1,12 +1,25 @@
-Planificador de Viajes
-Esta aplicación te permite planificar tus viajes de manera sencilla y organizada. Puedes añadir traslados, actividades y lugares para comer y beber.
+## PlaneandoAndo
+
+PlaneandoAndo es una aplicación que te ayuda a organizar tus viajes de manera sencilla y eficiente. Puedes planear traslados, actividades, y descubrir los mejores bares y restaurantes en tu destino. Todo en un solo lugar.
 
 Tecnologías Utilizadas
-Vite: Entorno de desarrollo rápido para aplicaciones web modernas.
-React: Biblioteca de JavaScript para construir interfaces de usuario.
-JavaScript: Lenguaje de programación principal.
-Tailwind CSS: Framework de CSS para un diseño rápido y flexible.
-Funcionalidades
-Traslados: Registra tus vuelos, trenes, autobuses y otros medios de transporte.
-Actividades: Añade las cosas que quieres hacer durante tu viaje, como visitas a museos, excursiones o eventos.
-Bares y Restaurantes: Guarda los lugares donde quieres comer y beber, con información como la dirección, el tipo de comida y las reseñas.
+
+Vite: Para una configuración rápida y moderna en React.
+
+React: Para la construcción de la interfaz de usuario.
+
+JavaScript: Lenguaje principal para la lógica de la aplicación.
+
+Tailwind CSS: Para un diseño moderno y elegante sin esfuerzo.
+
+Firebase: Utilizado para la autenticación mediante correo electrónico, gestión de tokens para la recuperación de contraseña y almacenamiento en la base de datos.
+
+Características Principales
+
+Autenticación de Usuarios: Registro e inicio de sesión con correo electrónico.
+
+Recuperación de Contraseña: Gestión segura de contraseñas mediante tokens.
+
+Gestor de Itinerarios: Planificación de traslados, actividades, bares y restaurantes.
+
+Interfaz Moderna: Diseño minimalista y adaptable a dispositivos móviles.
