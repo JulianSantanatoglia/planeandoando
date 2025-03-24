@@ -4,7 +4,7 @@ import Main from "./components/Main";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import ForgotPassword from "./components/ForgotPassword";
-import { auth } from './firebase.js';
+import { auth } from './firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 
 const App = () => {
