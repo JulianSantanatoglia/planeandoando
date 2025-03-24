@@ -6,8 +6,8 @@
   font-weight: 300;
 
   color-scheme: light;
-  color: #222; /* Un gris oscuro muy sutil para el texto */
-  background-color: #f9f9f9; /* Un blanco muy suave */
+  color: #222; 
+  background-color: #f9f9f9; 
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -17,13 +17,13 @@
 
 a {
   font-weight: 400;
-  color: #3498db; /* Un azul moderno y limpio para los enlaces */
+  color: #3498db; 
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: #2980b9; /* Un azul un poco más oscuro al pasar el ratón */
+  color: #2980b9; 
 }
 
 body {
@@ -34,35 +34,35 @@ body {
   min-width: 320px;
   min-height: 100vh;
   padding: 2rem;
-  background-color: #f9f9f9; /* Aseguramos que el fondo del body sea el mismo */
+  background-color: #f9f9f9;
 }
 
 h1 {
   font-size: 2.8em;
   line-height: 1.2;
   font-weight: 400;
-  color: #222; /* El mismo gris oscuro sutil para los títulos */
+  color: #222;
   margin-bottom: 1rem;
 }
 
 button {
-  border: 1px solid #ddd; /* Un borde muy ligero */
-  padding: 0.6em 1.2em; /* Un poco más de espacio en el botón */
+  border: 1px solid #ddd; 
+  padding: 0.6em 1.2em; 
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #fff; /* Blanco puro para el botón */
-  color: #222; /* Gris oscuro sutil para el texto del botón */
+  background-color: #fff; 
+  color: #222; 
   cursor: pointer;
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #f0f0f0; /* Un gris muy claro al pasar el ratón */
-  border-color: #bbb; /* Un borde un poco más oscuro al pasar el ratón */
+  background-color: #f0f0f0; 
+  border-color: #bbb; 
 }
 
 button:focus,
 button:focus-visible {
-  outline: 2px solid #3498db; /* Un azul moderno para el foco */
+  outline: 2px solid #3498db; 
 }

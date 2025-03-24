@@ -1,12 +1,22 @@
-Planificador de Viajes
-Esta aplicación te permite planificar tus viajes de manera sencilla y organizada. Puedes añadir traslados, actividades y lugares para comer y beber.
+# PlaneandoAndo ✈️️
 
-Tecnologías Utilizadas
-Vite: Entorno de desarrollo rápido para aplicaciones web modernas.
-React: Biblioteca de JavaScript para construir interfaces de usuario.
-JavaScript: Lenguaje de programación principal.
-Tailwind CSS: Framework de CSS para un diseño rápido y flexible.
-Funcionalidades
-Traslados: Registra tus vuelos, trenes, autobuses y otros medios de transporte.
-Actividades: Añade las cosas que quieres hacer durante tu viaje, como visitas a museos, excursiones o eventos.
-Bares y Restaurantes: Guarda los lugares donde quieres comer y beber, con información como la dirección, el tipo de comida y las reseñas.
+**PlaneandoAndo** es tu compañero de viaje definitivo. Organiza tus aventuras de manera sencilla y eficiente, todo en un solo lugar. Planifica traslados, descubre actividades emocionantes y encuentra los mejores bares y restaurantes en tu destino.
+
+## ✨ Características Principales
+
+* ** Autenticación Segura:** Registro e inicio de sesión con correo electrónico.
+* ** Recuperación de Contraseña:** Gestión segura de contraseñas mediante tokens.
+* ** Gestor de Itinerarios:** Planifica traslados, actividades, bares y restaurantes en un solo lugar.
+* ** Interfaz Moderna y Adaptable:** Diseño minimalista que se ve genial en cualquier dispositivo.
+
+## ️ Tecnologías Utilizadas
+
+* **⚛️ React:** Para una interfaz de usuario dinámica y reactiva.
+* **⚡ Vite:** Configuración rápida y moderna para un desarrollo ágil.
+* **☕ JavaScript:** El corazón de la lógica de la aplicación.
+* ** Tailwind CSS:** Diseño moderno y elegante sin complicaciones.
+* ** Firebase:** Autenticación segura y almacenamiento de datos en la nube.
+
+##  ¡Comienza tu Aventura!
+
+PlaneandoAndo te permite concentrarte en lo que realmente importa: ¡disfrutar de tu viaje! Olvídate de las complicaciones y planifica tus aventuras de manera fácil y divertida.

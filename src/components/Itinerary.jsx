@@ -82,7 +82,7 @@ const Itinerary = () => {
                 type="checkbox"
                 checked={activity.completed}
                 onChange={() => toggleComplete(index)}
-                className="mr-2 transform scale-125" // Aumentamos el tamaño de la casilla
+                className="mr-2 transform scale-125"
               />
               <div className="flex-grow">
                 <div className="font-semibold text-gray-900">{activity.activity}</div>

@@ -17,11 +17,11 @@
 }
 
 .logo:hover {
-  filter: drop-shadow(0 0 0.5em #e0e0e0); /* Un sombreado muy sutil */
+  filter: drop-shadow(0 0 0.5em #e0e0e0); 
 }
 
 .logo.react:hover {
-  filter: drop-shadow(0 0 0.5em #e0e0e0); /* Igual de sutil */
+  filter: drop-shadow(0 0 0.5em #e0e0e0); 
 }
 
 @keyframes logo-spin {
@@ -41,13 +41,13 @@
 
 .card {
   padding: 1.5em;
-  background-color: #ffffff; /* Blanco puro */
+  background-color: #ffffff; 
   border-radius: 8px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Un sombreado muy ligero */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); 
   margin: 1rem 0;
 }
 
 .read-the-docs {
-  color: #666; /* Un gris más claro para texto secundario */
+  color: #666;
   font-size: 0.9em;
 }
