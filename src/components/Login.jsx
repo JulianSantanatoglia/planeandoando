@@ -60,7 +60,7 @@ const Login = ({ onLogin }) => {
       case "auth/invalid-email":
         return "Correo electrónico no válido.";
       default:
-        return "Ha ocurrido un error. Inténtalo de nuevo.";
+        return "Ingrese un correo electronico para recuperar la contraseña.";
     }
   };
 
