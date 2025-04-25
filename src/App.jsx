@@ -36,30 +36,51 @@ const App = () => {
   };
 
   if (!authChecked) {
-    return <div>Cargando...</div>;
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary-color"></div>
+      </div>
+    );
   }
 
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen">
       {user ? (
-        <div className="bg-gradient-to-br from-blue-100 to-green-100 flex flex-col items-center p-4">
-          <div className="flex flex-col items-center justify-center">
-            <h1 className="text-4xl font-light text-gray-800 mb-8 m-10">
-              Planeando<span className="text-indigo-600 font-semibold">Ando</span>
-              <span className="text-sm flex justify-center text-gray-500">
-                Tu planificador de viajes
-              </span>
-            </h1>
+        <div className="flex flex-col min-h-screen">
+          <div className="banner" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80")' }}>
+            <div className="banner-content">
+              <h1 className="text-5xl font-bold mb-4">
+                Planeando<span className="text-white">Ando</span>
+              </h1>
+              <p className="text-xl">Tu planificador de viajes personal</p>
+            </div>
           </div>
-          <div className="absolute top-4 right-4"> 
-            <button
-              className="bg-red-500 text-white p-2 rounded-md"
-              onClick={handleLogout}
-            >
-              Cerrar Sesión
-            </button>
-          </div>
-          <Main />
+          
+          <nav className="bg-white shadow-md">
+            <div className="container mx-auto px-4">
+              <div className="flex justify-between items-center py-4">
+                <div className="text-xl font-semibold text-primary-color">
+                  ¡Bienvenido, {user.email}!
+                </div>
+                <button
+                  className="btn btn-primary"
+                  onClick={handleLogout}
+                >
+                  Cerrar Sesión
+                </button>
+              </div>
+            </div>
+          </nav>
+
+          <main className="container mx-auto px-4 py-8 flex-grow">
+            <Main />
+          </main>
+
+          <footer className="bg-gray-800 text-white py-6">
+            <div className="container mx-auto px-4 text-center">
+              <p>© 2024 PlaneandoAndo - Todos los derechos reservados</p>
+            </div>
+          </footer>
         </div>
       ) : showRegister ? (
         <Register onBackToLogin={handleBackToLogin} />

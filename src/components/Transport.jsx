@@ -1,137 +1,188 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const Transport = () => {
-  const [transports, setTransports] = useState(() => {
-    const storedTransports = localStorage.getItem('transports');
-    return storedTransports ? JSON.parse(storedTransports) : [];
-  });
+  const [transports, setTransports] = useState([]);
   const [newTransport, setNewTransport] = useState({
-    type: 'Avion',
-    origin: '',
-    destination: '',
+    type: '',
+    from: '',
+    to: '',
     date: '',
-    price: '',
-    people: 1,
+    time: '',
+    details: ''
   });
 
-  useEffect(() => {
-    localStorage.setItem('transports', JSON.stringify(transports));
-  }, [transports]);
-
-  const handleChange = (e) => {
-    setNewTransport({ ...newTransport, [e.target.name]: e.target.value });
+  const handleAddTransport = (e) => {
+    e.preventDefault();
+    const transport = {
+      ...newTransport,
+      id: Date.now()
+    };
+    setTransports([...transports, transport]);
+    setNewTransport({
+      type: '',
+      from: '',
+      to: '',
+      date: '',
+      time: '',
+      details: ''
+    });
   };
 
-  const addTransport = () => {
-    if (Object.values(newTransport).some((value) => !value)) {
-      alert('Por favor, completa todos los campos.');
-      return;
-    }
-    setTransports([...transports, newTransport]);
-    setNewTransport({ type: 'Avion', origin: '', destination: '', date: '', price: '', people: 1 });
+  const handleDeleteTransport = (id) => {
+    setTransports(transports.filter(transport => transport.id !== id));
   };
 
-  const removeTransport = (index) => {
-    setTransports(transports.filter((_, i) => i !== index));
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewTransport(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
-
-  const calculateTotal = () => {
-    return transports.reduce((total, transport) => {
-      return total + (parseFloat(transport.price) * transport.people);
-    }, 0);
-  };
-
-  const total = calculateTotal().toFixed(2);
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md text-gray-800 font-sans">
-      <h2 className="text-2xl font-semibold mb-6 text-gray-900">Traslados🚊</h2>
+    <div className="max-w-6xl mx-auto">
+      <h2 className="section-title">Traslados</h2>
 
-      <div className="space-y-4 mb-6">
-        <select
-          name="type"
-          value={newTransport.type}
-          onChange={handleChange}
-          className="w-full p-3 rounded-md border border-gray-300 focus:ring focus:ring-blue-200 focus:outline-none"
-        >
-          <option value="Avion🛩">Avión🛩</option>
-          <option value="Autobus🚌">Autobús🚌</option>
-          <option value="Tren🚊">Tren🚊</option>
-        </select>
-        <input
-          type="text"
-          name="origin"
-          value={newTransport.origin}
-          onChange={handleChange}
-          placeholder="Origen"
-          className="w-full p-3 rounded-md border border-gray-300 focus:ring focus:ring-blue-200 focus:outline-none"
-        />
-        <input
-          type="text"
-          name="destination"
-          value={newTransport.destination}
-          onChange={handleChange}
-          placeholder="Destino"
-          className="w-full p-3 rounded-md border border-gray-300 focus:ring focus:ring-blue-200 focus:outline-none"
-        />
-        <input
-          type="date"
-          name="date"
-          value={newTransport.date}
-          onChange={handleChange}
-          className="w-full p-3 rounded-md border border-gray-300 focus:ring focus:ring-blue-200 focus:outline-none"
-        />
-        <input
-          type="number"
-          name="price"
-          value={newTransport.price}
-          onChange={handleChange}
-          placeholder="Precio por persona"
-          className="w-full p-3 rounded-md border border-gray-300 focus:ring focus:ring-blue-200 focus:outline-none"
-        />
-        <input
-          type="number"
-          name="people"
-          value={newTransport.people}
-          onChange={handleChange}
-          placeholder="Personas"
-          className="w-full p-3 rounded-md border border-gray-300 focus:ring focus:ring-blue-200 focus:outline-none"
-        />
-      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="card">
+          <h3 className="text-lg font-semibold mb-4">Agregar Nuevo Traslado</h3>
+          <form onSubmit={handleAddTransport} className="space-y-4">
+            <div>
+              <label className="form-label">Tipo de Transporte</label>
+              <select
+                name="type"
+                value={newTransport.type}
+                onChange={handleInputChange}
+                className="input-field"
+                required
+              >
+                <option value="">Seleccionar</option>
+                <option value="Avión">Avión</option>
+                <option value="Tren">Tren</option>
+                <option value="Autobús">Autobús</option>
+                <option value="Taxi">Taxi</option>
+                <option value="Barco">Barco</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
 
-      <button
-        onClick={addTransport}
-        className="w-full py-3 px-6 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:ring focus:ring-blue-200 focus:outline-none"
-      >
-        Agregar
-      </button>
-
-      <ul className="mt-6 space-y-4">
-        {transports.map((transport, index) => (
-          <li
-            key={index}
-            className="p-4 rounded-lg border border-gray-200 flex items-center justify-between"
-          >
-            <div className="flex-grow">
-              <div className="font-semibold text-gray-900">{transport.type}</div>
-              <div className="text-sm text-gray-600">
-                {transport.origin} - {transport.destination}
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="form-label">Desde</label>
+                <input
+                  type="text"
+                  name="from"
+                  value={newTransport.from}
+                  onChange={handleInputChange}
+                  className="input-field"
+                  required
+                  placeholder="Origen"
+                />
               </div>
-              <div className="text-sm text-gray-600">
-                {transport.date} | €{transport.price} x {transport.people} personas = €{transport.price * transport.people}
+              <div>
+                <label className="form-label">Hasta</label>
+                <input
+                  type="text"
+                  name="to"
+                  value={newTransport.to}
+                  onChange={handleInputChange}
+                  className="input-field"
+                  required
+                  placeholder="Destino"
+                />
               </div>
             </div>
-            <button
-              onClick={() => removeTransport(index)}
-              className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 text-sm focus:ring focus:ring-red-200 focus:outline-none"
-            >
-              Eliminar
+
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="form-label">Fecha</label>
+                <input
+                  type="date"
+                  name="date"
+                  value={newTransport.date}
+                  onChange={handleInputChange}
+                  className="input-field"
+                  required
+                />
+              </div>
+              <div>
+                <label className="form-label">Hora</label>
+                <input
+                  type="time"
+                  name="time"
+                  value={newTransport.time}
+                  onChange={handleInputChange}
+                  className="input-field"
+                  required
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="form-label">Detalles Adicionales</label>
+              <textarea
+                name="details"
+                value={newTransport.details}
+                onChange={handleInputChange}
+                className="input-field"
+                rows="3"
+                placeholder="Número de vuelo, terminal, etc."
+              />
+            </div>
+
+            <button type="submit" className="btn btn-primary w-full">
+              Agregar Traslado
             </button>
-          </li>
-        ))}
-      </ul>
-      <div className="mt-6">
-        <p className="font-semibold text-gray-900">Total: €{total}</p>
+          </form>
+        </div>
+
+        <div>
+          <div className="space-y-4">
+            {transports.length === 0 ? (
+              <div className="card text-center py-8">
+                <p className="text-text-secondary">No hay traslados programados</p>
+              </div>
+            ) : (
+              transports.map(transport => (
+                <div key={transport.id} className="card hover-scale">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h3 className="text-lg font-semibold">{transport.type}</h3>
+                      <p className="text-sm text-text-secondary">
+                        {transport.from} → {transport.to}
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => handleDeleteTransport(transport.id)}
+                      className="text-red-400 hover:text-red-300"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div className="mt-4 grid grid-cols-2 gap-4">
+                    <div>
+                      <p className="text-xs text-text-secondary">Fecha</p>
+                      <p className="text-sm">{transport.date}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-text-secondary">Hora</p>
+                      <p className="text-sm">{transport.time}</p>
+                    </div>
+                  </div>
+                  {transport.details && (
+                    <div className="mt-4">
+                      <p className="text-xs text-text-secondary">Detalles</p>
+                      <p className="text-sm">{transport.details}</p>
+                    </div>
+                  )}
+                </div>
+              ))
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );
