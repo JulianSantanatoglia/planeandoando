@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { auth } from "../firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 const Register = ({ onBackToLogin }) => {
   const [nombre, setNombre] = useState("");
@@ -12,7 +12,11 @@ const Register = ({ onBackToLogin }) => {
   const handleRegister = async () => {
     setError("");
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      // Update the user's display name
+      await updateProfile(userCredential.user, {
+        displayName: nombre // Solo usamos el nombre, sin el apellido
+      });
       onBackToLogin();
     } catch (err) {
       setError(traducirError(err.code));

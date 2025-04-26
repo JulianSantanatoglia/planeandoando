@@ -48,22 +48,22 @@ const App = () => {
       {user ? (
         <div className="flex flex-col min-h-screen">
           <div className="banner" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80")' }}>
-            <div className="banner-content">
-              <h1 className="text-5xl font-bold mb-4">
+            <div className="banner-content flex flex-col items-center justify-center text-center px-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
                 Planeando<span className="text-white">Ando</span>
               </h1>
-              <p className="text-xl">Tu planificador de viajes personal</p>
+              <p className="text-lg sm:text-xl">Tu planificador de viajes personal</p>
             </div>
           </div>
           
           <nav className="bg-white shadow-md">
             <div className="container mx-auto px-4">
-              <div className="flex justify-between items-center py-4">
-                <div className="text-xl font-semibold text-primary-color">
-                  ¡Bienvenido, {user.email}!
+              <div className="flex flex-col sm:flex-row justify-between items-center py-4 gap-4">
+                <div className="text-xl font-semibold text-primary-color text-center sm:text-left">
+                  ¡Hola, {user.displayName || 'viajero'}! 👋
                 </div>
                 <button
-                  className="btn btn-primary"
+                  className="btn btn-primary w-full sm:w-auto"
                   onClick={handleLogout}
                 >
                   Cerrar Sesión
